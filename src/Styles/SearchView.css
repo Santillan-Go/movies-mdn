@@ -1,0 +1,71 @@
+.section-view{
+    display: grid;
+    grid-template-columns: 30% 70%;
+
+
+}
+
+.aside-filter{
+    position: sticky;
+    top: 80px;
+background-color: white;
+border: none;
+border-radius: 1rem;
+height: 500px;
+color: black;
+margin-top: 16px;
+}
+.title-filter{
+    width: 100%;
+    padding: 1rem;
+}
+
+
+
+.filter-by-genre{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: .4rem;
+}
+
+.check{
+    width: 120px;
+    height: 36px;
+    font-size: .9rem;
+    border-radius: 1rem;
+    padding: .3rem;
+    color: white;
+    background-color: rgb(41, 122, 229);
+    font-weight: bold;
+}
+
+.filter-by-genre p:hover{
+    cursor: pointer;
+    background-color: rgb(116, 165, 229);
+    color: black;
+
+}
+ .selected {
+    background-color: rgb(7, 27, 100);
+    color:white;
+    
+}
+
+.selected:hover{
+    cursor: pointer;
+    background-color: rgb(7, 27, 100);
+    /* background-color: rgb(116, 165, 229); */
+    
+}
+
+.not-found{
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    width: 50%;
+    background-color: rgb(7, 124, 227);
+    position: absolute;
+right: 10%;
+}
