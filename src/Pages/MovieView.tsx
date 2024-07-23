@@ -9,7 +9,7 @@ import { type  MovieView } from '../type';
 
 export const URL_IMG_API=`https://image.tmdb.org/t/p/w500`;
 
-function MovieView() {
+function MovieViewPage() {
 const Movie:MovieView=  useLoaderData();
 //const localtion=useLocation()
 
@@ -85,7 +85,7 @@ setSeoInfo({title:Movie.title,description:Movie.overview})
   )
 }
 
-export default MovieView
+export default  MovieViewPage
 
 
 
