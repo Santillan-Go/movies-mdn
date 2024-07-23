@@ -10,7 +10,7 @@ import Slider from "./Components/Slider";
 
 
 function App() {
-  const { movies, img_url, loader, sliderImages } = useScroll();
+  const { movies, loader, sliderImages } = useScroll();
 const {setSeoInfo}=  useSeo()
 
 useEffect(()=>{
