@@ -1,0 +1,99 @@
+*,
+*:after,
+*::before{
+box-sizing: border-box;
+}
+
+.hero-image-main{
+    position: relative;
+     width: 100%;
+   
+   background-position: center;
+   /* width: 100%;
+   height: 50vh; */
+   overflow-x: hidden;
+   /* content: "";
+
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(255, 255, 255, 0.2); /* Fondo con transparencia 
+   backdrop-filter: blur(10px);  Efecto de desenfoque 
+    */
+   }
+
+
+
+.image-container{
+    display: flex;
+
+  width: 600vw; 
+display: flex;
+   transition: all .5s ease-in-out;
+ 
+    /* padding: .8rem; */
+}
+
+.image-slider{
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    position: relative;
+}
+
+ 
+
+.info-slider{
+  flex-basis: 50%;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 1.4rem;
+}
+
+
+.container-btns{
+    position: absolute;
+    bottom: 0%;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.link-image{
+  width:400px;
+  height: 450px;
+  border-radius: 1rem;
+
+}
+
+  
+img{
+    width:400px;
+    height: 450px;
+    border-radius: 1rem;
+}
+   
+
+   .container-titles{
+     position: absolute;
+     color: white;
+     font-weight: bold;
+     top: 0;
+      background-color: var(--hero-bg-color); 
+     bottom: 0;
+     left: 0;
+     right: 0;
+   }
+   
+   .botton{
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--main-color);
+    color: #646cff;
+    border: none;
+    cursor: pointer;
+   }

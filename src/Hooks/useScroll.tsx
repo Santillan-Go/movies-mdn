@@ -6,6 +6,7 @@ import { URL_IMG_API } from "../Components/Card-Movie";
 
  export function useScroll() {
     const [movies, setMovies] = useState<Movie[]>([]);
+    const [sliderImages, setSliderImages]=useState([]) as any;
     const page = useRef(1);
     const [loader, setLoader] = useState<boolean>(false);
   const location=useLocation();
@@ -61,8 +62,11 @@ import { URL_IMG_API } from "../Components/Card-Movie";
         img_url.current = URL_IMG_API + img;
         setMovies(moviesR);
         setLoader(false);
+        const copy=[...moviesR]
+        copy.splice(0,14);
+        setSliderImages([...copy])
       });
     }, []);
   
-    return { movies, img_url, loader };
+    return { movies, img_url, loader ,sliderImages};
   }

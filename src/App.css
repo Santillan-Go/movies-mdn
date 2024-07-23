@@ -83,37 +83,6 @@ nav{
 padding: 0 1rem;
   
 }
-.hero-image-main{
- position: relative;
-  
-
-background-position: center;
-width: 100%;
-height: 50vh;
-
-}
-
-.container-img{
-  background-repeat: no-repeat;
-
-background-size: cover;
-background-position: center;
-
-
-width: 100%;
-min-height: 300px;
-}
-.container-titles{
-  position: absolute;
-  color: white;
-  font-weight: bold;
-  top: 0;
-   background-color: var(--hero-bg-color); 
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
 
 /*FORM*/
 
@@ -247,4 +216,9 @@ h2{
 }
 
 
+}
+
+.section-movies{
+
+  margin-top: 200px;
 }

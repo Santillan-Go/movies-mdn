@@ -49,7 +49,9 @@ setSeoInfo({title:Movie.title,description:Movie.overview})
              onClick={()=>{
             Inside?deleteFavoriteMovie(Movie.id):
             addFavoriteMovie(Movie)
-            }}>{Inside?"🗑️":"💓"}</button><button>Buy</button>
+            }}>{Inside?"🗑️":"💓"}
+            </button>
+            <button className={`btn-action`}>Buy</button>
          </div>
     </div>
        
@@ -70,7 +72,9 @@ setSeoInfo({title:Movie.title,description:Movie.overview})
                 ))}
             </ul>
         </div>
-         <div className='realese'>   <h2>{`${Movie.release_date}`}</h2></div>   
+         <div className='realese'>
+          <h2>Released:</h2>
+             <h2>{`${Movie.release_date}`}</h2></div>   
   </section>
        
     </article>

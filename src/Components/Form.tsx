@@ -32,7 +32,7 @@ setQuery("");
 
     return (
         <form  onSubmit={handleSubmit} >
-        <input className='query'  onChange={handleChange}  autoComplete='off' value={query} name='query' type="text" />
+        <input className='query' placeholder='Movies...'  onChange={handleChange}  autoComplete='off' value={query} name='query' type="text" />
         <input type="submit" value={"Search"} className='submit' />
       </form>
   )
