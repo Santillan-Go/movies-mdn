@@ -10,7 +10,7 @@ import { type  MovieView } from '../type';
 export const URL_IMG_API=`https://image.tmdb.org/t/p/w500`;
 
 function MovieViewPage() {
-const Movie:MovieView=  useLoaderData()
+const movie:MovieView=  useLoaderData();
 //const localtion=useLocation()
 
 const {addFavoriteMovie,deleteFavoriteMovie,findMovieInFavorite} = useContext(FavoriteContext)
@@ -18,11 +18,11 @@ const {addFavoriteMovie,deleteFavoriteMovie,findMovieInFavorite} = useContext(Fa
 const {setSeoInfo}=useSeo();
 
 
-const Inside=findMovieInFavorite(Movie.id);
+const Inside=findMovieInFavorite(movie.id);
 
 useEffect(()=>{
     window.scrollTo(0,0);
-setSeoInfo({title:Movie.title,description:Movie.overview})
+setSeoInfo({title:movie.title,description:movie.overview})
 },[])
 
   return (
@@ -37,18 +37,18 @@ setSeoInfo({title:Movie.title,description:Movie.overview})
 
     <article  className='container-img-tagline'>
     <div className='img-container'>
-        <img  src={URL_IMG_API+Movie.poster_path} alt={Movie.title} />
+        <img  src={URL_IMG_API+movie.poster_path} alt={movie.title} />
     </div>
 
     <div  className='info-movie'>
-    <h1  className='title-movie'>{Movie.title}</h1>
-         <h2>{Movie.tagline}</h2>
+    <h1  className='title-movie'>{movie.title}</h1>
+         <h2>{movie.tagline}</h2>
          
          <div  className='actions'>
             <button className={`btn-action`}
              onClick={()=>{
-            Inside?deleteFavoriteMovie(Movie.id):
-            addFavoriteMovie(Movie)
+            Inside?deleteFavoriteMovie(movie.id):
+            addFavoriteMovie(movie)
             }}>{Inside?"🗑️":"💓"}
             </button>
             <button className={`btn-action`}>Buy</button>
@@ -61,20 +61,20 @@ setSeoInfo({title:Movie.title,description:Movie.overview})
     <article className='more-info-movie'>
   
 
-        <p  className='overview'>{Movie.overview}</p>
+        <p  className='overview'>{movie.overview}</p>
   
   <section className='both'>
   <div  className='genres-card'>
             <h3>Genres</h3>
             <ul className='genres'>
-                {Movie.genres.map(g=>(
+                {movie.genres.map(g=>(
                     <li key={g.id}>{g.name}</li>
                 ))}
             </ul>
         </div>
          <div className='realese'>
           <h2>Released:</h2>
-             <h2>{`${Movie.release_date}`}</h2></div>   
+             <h2>{`${movie.release_date}`}</h2></div>   
   </section>
        
     </article>
