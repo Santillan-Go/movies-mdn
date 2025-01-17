@@ -10,7 +10,35 @@ import { type  MovieView } from '../type';
 export const URL_IMG_API=`https://image.tmdb.org/t/p/w500`;
 
 function MovieViewPage() {
-const Movie:MovieView=  useLoaderData();
+const Movie:MovieView=  useLoaderData()??{
+  
+          adult:                 false,
+          backdrop_path:        "",
+          belongs_to_collection: "",
+          budget:                0,
+          genres:                [],
+          homepage:             "",
+          id:                    0,
+          imdb_id:              "",
+          origin_country:      [],
+          original_language:    "",
+          original_title:       "",
+          overview:             "",
+          popularity:            0,
+          poster_path:          "",
+          production_companies:  [],
+          production_countries:  [],
+          release_date:          Date,
+          revenue:               0,
+          runtime:               0,
+          spoken_languages:     [],
+          status:               "",
+          tagline:              "",
+          title:                "",
+          video:                 false,
+          vote_average:          0,
+          vote_count:            0,
+};
 //const localtion=useLocation()
 
 const {addFavoriteMovie,deleteFavoriteMovie,findMovieInFavorite} = useContext(FavoriteContext)
@@ -65,7 +93,7 @@ setSeoInfo({title:Movie.title,description:Movie.overview})
   
   <section className='both'>
   <div  className='genres-card'>
-            <h3>Generos</h3>
+            <h3>Genres</h3>
             <ul className='genres'>
                 {Movie.genres.map(g=>(
                     <li key={g.id}>{g.name}</li>
