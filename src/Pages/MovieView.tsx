@@ -1,5 +1,5 @@
-import  { useContext, useEffect } from 'react'
-import { Link,  useLoaderData, } from 'react-router-dom'
+import  { useContext, useEffect } from 'react';
+import { Link,  useLoaderData, } from 'react-router-dom';
 import { getById } from '../Services/GetMovies';
 import "../Styles/MovieView.css";
 import useSeo from '../Hooks/useSeo';
@@ -10,35 +10,7 @@ import { type  MovieView } from '../type';
 export const URL_IMG_API=`https://image.tmdb.org/t/p/w500`;
 
 function MovieViewPage() {
-const Movie:MovieView=  useLoaderData()??{
-  
-          adult:                 false,
-          backdrop_path:        "",
-          belongs_to_collection: "",
-          budget:                0,
-          genres:                [],
-          homepage:             "",
-          id:                    0,
-          imdb_id:              "",
-          origin_country:      [],
-          original_language:    "",
-          original_title:       "",
-          overview:             "",
-          popularity:            0,
-          poster_path:          "",
-          production_companies:  [],
-          production_countries:  [],
-          release_date:          Date,
-          revenue:               0,
-          runtime:               0,
-          spoken_languages:     [],
-          status:               "",
-          tagline:              "",
-          title:                "",
-          video:                 false,
-          vote_average:          0,
-          vote_count:            0,
-};
+const Movie:MovieView=  useLoaderData()
 //const localtion=useLocation()
 
 const {addFavoriteMovie,deleteFavoriteMovie,findMovieInFavorite} = useContext(FavoriteContext)
