@@ -23,14 +23,12 @@ function SearchView() {
     setNotFound(false);
     setLoading(true);
 
-    
     getBySearch(search).then((movies) => {
       if (movies.length === 0) {
         setNotFound(true);
       }
       let MovieResult: Movie[] = movies;
       const moviesGenres = MovieResult.map((m) => {
- 
         let genres: string[] = [];
         m.genre_ids.forEach((genre) => {
           let findGenre = Genres.current.find((g) => g.id === genre)?.name;
@@ -55,55 +53,62 @@ function SearchView() {
     });
   }, [search]);
 
-
-
   return (
-    <section className="section-view">
-      <aside className="aside-filter">
-        <article>
-          <h2 className="title-filter">Filtrar por genero</h2>
-
-          <div className="filter-by-genre">
-            {filter.length > 0 &&
-              filter.map((genre) => (
-                <p
-                  key={genre.name}
-                  className={`check ${
-                    ActiveGenre(genre.name) ? "selected" : ""
-                  }`}
-                  onClick={() => {
-                    handleFilter(genre.name);
-                  }}
-                >
-                  {genre.name}
-                </p>
-              ))}
-          </div>
-        </article>
-      </aside>
-      {loading ? (
-        <ul
-          className={`ul-view ${
-            mappedFilter.length < 4 ? "ul-view-nothing" : ""
-          }`}
-        >
+    <section className="min-h-screen px-4 py-8">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-8">
+        {/* Filter Sidebar */}
+        <aside className="md:w-72 flex-shrink-0">
           {" "}
-          <Loader/>
-        </ul>
-      ) : (
-        <ul
-          className={`ul-view ${
-            mappedFilter.length < 4 ? "ul-view-nothing" : ""
-          }`}
-        >
-          {mappedFilter.length > 0 &&
-            mappedFilter.map((m) => (
-              <Rectan_Movie key={crypto.randomUUID()} m={m} />
-            ))}
-        </ul>
-      )}
+          {/* Increased width for better fit */}
+          <div className="sticky top-24 bg-white/5 backdrop-blur-sm rounded-2xl p-6">
+            <h2 className="text-xl font-semibold text-white mb-4">
+              Filter by Genre
+            </h2>
 
-      {notFound && <h2 className="not-found">Not Found</h2>}
+            <div className="grid grid-cols-2 gap-2">
+              {" "}
+              {/* Changed to grid for consistent sizing */}
+              {filter.length > 0 &&
+                filter.map((genre) => (
+                  <button
+                    key={genre.name}
+                    onClick={() => handleFilter(genre.name)}
+                    className={`w-full px-3 py-2 rounded-full text-sm font-medium transition-all
+                      ${
+                        ActiveGenre(genre.name)
+                          ? "bg-blue-500 text-white ring-2 ring-blue-400 ring-offset-2 ring-offset-[rgb(3,3,79)]"
+                          : "bg-white/10 text-white/70 hover:bg-white/20"
+                      }
+                      flex items-center justify-center whitespace-nowrap
+                    `}
+                  >
+                    {genre.name}
+                  </button>
+                ))}
+            </div>
+          </div>
+        </aside>
+
+        {/* Movies Grid */}
+        {loading ? (
+          <div className="flex-1 flex items-center justify-center">
+            <Loader />
+          </div>
+        ) : (
+          <ul className="flex-1 grid gap-4">
+            {mappedFilter.length > 0 &&
+              mappedFilter.map((m) => (
+                <Rectan_Movie key={crypto.randomUUID()} m={m} />
+              ))}
+          </ul>
+        )}
+
+        {notFound && (
+          <div className="flex-1 flex items-center justify-center">
+            <h2 className="text-2xl text-white/70">No results found</h2>
+          </div>
+        )}
+      </div>
     </section>
   );
 }
