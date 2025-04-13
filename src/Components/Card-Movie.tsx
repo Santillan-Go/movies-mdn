@@ -46,7 +46,7 @@ function Card_Movie({ m }: Props) {
 }
 
 export function Rectan_Movie({ m }: { m: MovieR }) {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   return (
     <li className="flex gap-4 bg-white/5 rounded-3xl overflow-hidden hover:bg-white/10 hover:rounded-3xl transition-colors p-4 mt-2 mr-2 ml-2">

@@ -19,7 +19,7 @@ function MovieViewPage() {
   const { addFavoriteMovie, deleteFavoriteMovie, findMovieInFavorite } =
     useContext(FavoriteContext);
   const { setSeoInfo } = useSeo();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const [goTo, setGoTo] = useState<string>(
     searchParams.get("q") ? `/search?q=${searchParams.get("q")}` : "/"
   );
